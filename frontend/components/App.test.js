@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import App from './App'
-
+import langs from '../i18n/index.json'
 describe('Module 4 Project Tests', () => {
   describe('English Language', () => {
     /*
@@ -10,10 +10,61 @@ describe('Module 4 Project Tests', () => {
 
       One test is done for you as an example.
     */
-    test(`TEXT_HEADING_CREATE_ACCOUNT is visible`, () => {
-      render(<App lang="en" />)
-      expect(screen.getByText("Create an Account")).toBeVisible()
-    })
+  //  placeholder tests
+  test(`PLACEHOLDER_USERNAME is visible`, () => {
+    render(<App lang="en" />)
+    expect(screen.getByPlaceholderText(langs.en.PLACEHOLDER_USERNAME))
+  })
+     // Label Tests
+     test(`LABEL_USERNAME is visible`, () => {
+       render(<App lang="en" />)
+       expect(screen.getByLabelText(langs.en.LABEL_USERNAME))
+   })
+   test(`LABEL_FAV_FOOD is visible`, () => {
+     render(<App lang="en" />)
+     expect(screen.getByLabelText(langs.en.LABEL_FAV_FOOD))
+   })
+   test(`LABEL_ACCEPT_TERMS is visible`, () => {
+     render(<App lang="en" />)
+     expect(screen.getByLabelText(langs.en.LABEL_ACCEPT_TERMS))
+   })
+     // Text Test
+     test(`TEXT_HEADING_CREATE_ACCOUNT is visible`, () => {
+       render(<App lang="en" />)
+       expect(screen.getByText(langs.en.TEXT_HEADING_CREATE_ACCOUNT)).toBeVisible()
+   })
+   test(`TEXT_FAV_LANG_JS is visible`, () => {
+     render(<App lang="en" />)
+     expect(screen.getByText(langs.en.TEXT_FAV_LANG_JS)).toBeVisible()
+   })
+   test(`TEXT_FAV_LANG_RUST is visible`, () => {
+     render(<App lang="en" />)
+     expect(screen.getByText(langs.en.TEXT_FAV_LANG_RUST)).toBeVisible()
+   })
+   test(`TEXT_OPT_FAV_FOOD_1 is visible`, () => {
+     render(<App lang="en" />)
+     expect(screen.getByText(langs.en.TEXT_OPT_FAV_FOOD_1)).toBeVisible()
+   })
+   test(`TEXT_OPT_FAV_FOOD_2 is visible`, () => {
+     render(<App lang="en" />)
+     expect(screen.getByText(langs.en.TEXT_OPT_FAV_FOOD_2)).toBeVisible()
+   })
+   test(`TEXT_OPT_FAV_FOOD_3 is visible`, () => {
+     render(<App lang="en" />)
+     expect(screen.getByText(langs.en.TEXT_OPT_FAV_FOOD_3)).toBeVisible()
+   })
+   test(`TEXT_OPT_FAV_FOOD_4 is visible`, () => {
+     render(<App lang="en" />)
+     expect(screen.getByText(langs.en.TEXT_OPT_FAV_FOOD_4)).toBeVisible()
+   })
+   test(`TEXT_SUBMIT is visible`, () => {
+     render(<App lang="en" />)
+     expect(screen.getByText(langs.en.TEXT_SUBMIT)).toBeVisible()
+   })
+   test(`TEXT_FAV_LANG is visible`, () => {
+    render(<App lang="en" />)
+    expect(screen.getByText(langs.en.TEXT_FAV_LANG)).toBeVisible()
+  })
   })
   describe('Spanish Language', () => {
     /*
@@ -21,9 +72,79 @@ describe('Module 4 Project Tests', () => {
 
       This is done after making the UI multilingual.
     */
+    //  placeholder tests
+    test(`PLACEHOLDER_USERNAME is visible`, () => {
+      render(<App lang="esp" />)
+      expect(screen.getByPlaceholderText(langs.esp.PLACEHOLDER_USERNAME))
+    })
+       // Label Tests
+       test(`LABEL_USERNAME is visible`, () => {
+         render(<App lang="esp" />)
+         expect(screen.getByLabelText(langs.esp.LABEL_USERNAME))
+     })
+     test(`LABEL_FAV_FOOD is visible`, () => {
+       render(<App lang="esp" />)
+       expect(screen.getByLabelText(langs.esp.LABEL_FAV_FOOD))
+     })
+     test(`LABEL_ACCEPT_TERMS is visible`, () => {
+       render(<App lang="esp" />)
+       expect(screen.getByLabelText(langs.esp.LABEL_ACCEPT_TERMS))
+     })
+       // Text Test
+       test(`TEXT_HEADING_CREATE_ACCOUNT is visible`, () => {
+         render(<App lang="esp" />)
+         expect(screen.getByText(langs.esp.TEXT_HEADING_CREATE_ACCOUNT)).toBeVisible()
+     })
+     test(`TEXT_FAV_LANG_JS is visible`, () => {
+       render(<App lang="esp" />)
+       expect(screen.getByText(langs.esp.TEXT_FAV_LANG_JS)).toBeVisible()
+     })
+     test(`TEXT_FAV_LANG_RUST is visible`, () => {
+       render(<App lang="esp" />)
+       expect(screen.getByText(langs.esp.TEXT_FAV_LANG_RUST)).toBeVisible()
+     })
+     test(`TEXT_OPT_FAV_FOOD_1 is visible`, () => {
+       render(<App lang="esp" />)
+       expect(screen.getByText(langs.esp.TEXT_OPT_FAV_FOOD_1)).toBeVisible()
+     })
+     test(`TEXT_OPT_FAV_FOOD_2 is visible`, () => {
+       render(<App lang="esp" />)
+       expect(screen.getByText(langs.esp.TEXT_OPT_FAV_FOOD_2)).toBeVisible()
+     })
+     test(`TEXT_OPT_FAV_FOOD_3 is visible`, () => {
+       render(<App lang="esp" />)
+       expect(screen.getByText(langs.esp.TEXT_OPT_FAV_FOOD_3)).toBeVisible()
+     })
+     test(`TEXT_OPT_FAV_FOOD_4 is visible`, () => {
+       render(<App lang="esp" />)
+       expect(screen.getByText(langs.esp.TEXT_OPT_FAV_FOOD_4)).toBeVisible()
+     })
+     test(`TEXT_SUBMIT is visible`, () => {
+       render(<App lang="esp" />)
+       expect(screen.getByText(langs.esp.TEXT_SUBMIT)).toBeVisible()
+     })
+     test(`TEXT_FAV_LANG is visible`, () => {
+      render(<App lang="esp" />)
+      expect(screen.getByText(langs.esp.TEXT_FAV_LANG)).toBeVisible()
+    })
+
   })
   describe('getEntriesByKeyPrefix', () => {
     test('can extract the correct data', () => {
+      const result = getEntriesByKeyPrefix(
+        {
+          abc_1: "data_abc_1",
+          abc_2: "data_abc_2",
+          xyz_1: "data_xyz_1",
+          abc_3: "data_abc_3",
+        }, 'abc'
+      )
+      expect(result).toEqual(['data_abc_1',
+        'data_abc_2',
+        'data_abc_3',])
+
+        
+
     /*
       👉 TASK 4 part 2
 
@@ -35,10 +156,44 @@ describe('Module 4 Project Tests', () => {
       the tests are written _before_ implementing
       the function being tested.
     */
+
     })
+    test('can extract the correct data xyz', () => {
+      const result = getEntriesByKeyPrefix(
+        {
+          abc_1: "data_abc_1",
+          abc_2: "data_abc_2",
+          xyz_1: "data_xyz_1",
+          abc_3: "data_abc_3",
+        }, 'xyz'
+      )
+      expect(result).toEqual(['data_xyz_1'])
+    })
+    test('can extract the correct data foo', () => {
+      const result = getEntriesByKeyPrefix(
+        {
+          abc_1: "data_abc_1",
+          abc_2: "data_abc_2",
+          xyz_1: "data_xyz_1",
+          abc_3: "data_abc_3",
+        }, 'foo'
+      )
+      expect(result).toEqual([])
+    })
+
   })
 })
+
 function getEntriesByKeyPrefix(obj, keyPrefix) {
+  let tests = Object.keys(obj)
+  let result = []
+  tests.forEach((test) => {
+     if(test.includes(keyPrefix)){
+      result.push(obj[test])
+     }
+  })
+    
+  return result
   /*
     👉 TASK 4 part 1
 
